@@ -15,9 +15,8 @@
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'wordcamporg' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'wordcamporg' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'wordcamporg' ), 'wordcamporg', '<a href="https://automattic.com/" rel="designer">Bernhard Kau</a>' ); ?>
+			<a class="site-info-generator" href="http://wordpress.org/" title="<?php esc_attr_e( 'A Semantic Personal Publishing Platform', 'wordcamporg' ); ?>" rel="generator"><?php echo esc_html( sprintf( __( 'Proudly powered by %s', 'wordcamporg' ), 'WordPress' ) ); ?></a>
+			<a class="site-info-network" href="http://central.wordcamp.org/" title="<?php esc_attr_e( 'Return to WordCamp Central', 'wordcamporg' ); ?>"><?php esc_html_e( 'Go to WordCamp Central', 'wordcamporg' ); ?></a>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
