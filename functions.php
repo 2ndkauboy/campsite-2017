@@ -20,9 +20,9 @@ function campsite_2017_setup() {
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
 	 * If you're building a theme based on CampSite 2017, use a find and replace
-	 * to change 'campsite-2017' to the name of your theme in all the template files.
+	 * to change 'wordcamporg' to the name of your theme in all the template files.
 	 */
-	load_theme_textdomain( 'campsite-2017', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'wordcamporg', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -44,7 +44,7 @@ function campsite_2017_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'menu-1' => esc_html__( 'Primary', 'campsite-2017' ),
+		'menu-1' => esc_html__( 'Primary', 'wordcamporg' ),
 	) );
 
 	/*
@@ -90,9 +90,9 @@ add_action( 'after_setup_theme', 'campsite_2017_content_width', 0 );
  */
 function campsite_2017_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'campsite-2017' ),
+		'name'          => esc_html__( 'Sidebar', 'wordcamporg' ),
 		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'campsite-2017' ),
+		'description'   => esc_html__( 'Add widgets here.', 'wordcamporg' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
