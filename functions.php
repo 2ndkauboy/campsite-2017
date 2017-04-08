@@ -42,9 +42,12 @@ function campsite_2017_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 
-	// This theme uses wp_nav_menu() in one location.
+	// This theme uses wp_nav_menu() in two locations.
 	register_nav_menus( array(
-		'menu-1' => esc_html__( 'Primary', 'wordcamporg' ),
+		'primary' => esc_html__( 'Primary', 'wordcamporg' ),
+	) );
+	register_nav_menus( array(
+		'secondary' => esc_html__( 'Secondary', 'wordcamporg' ),
 	) );
 
 	/*
