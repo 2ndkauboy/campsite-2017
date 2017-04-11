@@ -22,7 +22,7 @@ function campsite_2017_setup() {
 	 * If you're building a theme based on CampSite 2017, use a find and replace
 	 * to change 'wordcamporg' to the name of your theme in all the template files.
 	 */
-	load_theme_textdomain( 'wordcamporg', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'wordcamporg', get_parent_theme_file_path( '/languages' ) );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -288,9 +288,9 @@ add_action( 'widgets_init', 'campsite_2017_widgets_init' );
 function campsite_2017_scripts() {
 	wp_enqueue_style( 'campsite-2017-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'campsite-2017-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_script( 'campsite-2017-navigation', get_theme_file_uri( '/js/navigation.js' ), array(), '20151215', true );
 
-	wp_enqueue_script( 'campsite-2017-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_script( 'campsite-2017-skip-link-focus-fix', get_theme_file_uri( '/js/skip-link-focus-fix.js' ), array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -301,24 +301,29 @@ add_action( 'wp_enqueue_scripts', 'campsite_2017_scripts' );
 /**
  * Implement the Custom Header feature.
  */
-require get_template_directory() . '/inc/custom-header.php';
+require get_parent_theme_file_path( '/inc/custom-header.php' );
 
 /**
  * Custom template tags for this theme.
  */
-require get_template_directory() . '/inc/template-tags.php';
+require get_parent_theme_file_path( '/inc/template-tags.php' );
 
 /**
  * Custom functions that act independently of the theme templates.
  */
-require get_template_directory() . '/inc/extras.php';
+require get_parent_theme_file_path( '/inc/extras.php' );
 
 /**
  * Customizer additions.
  */
-require get_template_directory() . '/inc/customizer.php';
+require get_parent_theme_file_path( '/inc/customizer.php' );
 
 /**
  * Load Jetpack compatibility file.
  */
-require get_template_directory() . '/inc/jetpack.php';
+require get_parent_theme_file_path( '/inc/jetpack.php' );
+
+/**
+ * SVG icons functions and filters.
+ */
+require get_parent_theme_file_path( '/inc/icon-functions.php' );

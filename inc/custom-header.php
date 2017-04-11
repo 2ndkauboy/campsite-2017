@@ -23,6 +23,7 @@ function campsite_2017_custom_header_setup() {
 		'width'                  => 1000,
 		'height'                 => 250,
 		'flex-height'            => true,
+		'video'                  => true,
 		'wp-head-callback'       => 'campsite_2017_header_style',
 	) ) );
 }
@@ -70,3 +71,16 @@ function campsite_2017_header_style() {
 	<?php
 }
 endif;
+
+
+/**
+ * Customize video play/pause button in the custom header.
+ *
+ * @param array $settings Video settings.
+ */
+function campsite_2017_video_controls( $settings ) {
+	$settings['l10n']['play'] = '<span class="screen-reader-text">' . __( 'Play background video', 'wordcamporg' ) . '</span>' . campsite_2017_get_svg( array( 'icon' => 'play' ) );
+	$settings['l10n']['pause'] = '<span class="screen-reader-text">' . __( 'Pause background video', 'wordcamporg' ) . '</span>' . campsite_2017_get_svg( array( 'icon' => 'pause' ) );
+	return $settings;
+}
+add_filter( 'header_video_settings', 'campsite_2017_video_controls' );
