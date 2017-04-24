@@ -25,6 +25,9 @@
 			) );
 
 			if ( $sessions->have_posts() ) {
+
+				echo '<h2>' . esc_html__( 'Sessions', 'wordcamporg' ) . '</h2>';
+
 				while ( $sessions->have_posts() ) {
 					$sessions->the_post();
 					$links = array();
@@ -45,7 +48,7 @@
 
 					?>
 					<div id="wcorg-session-<?php the_ID(); ?>" class="wcorg-session" >
-						<h2><?php the_title(); ?></h2>
+						<h3><?php the_title(); ?></h3>
 						<div class="wcorg-session-description">
 							<?php the_excerpt(); ?>
 
