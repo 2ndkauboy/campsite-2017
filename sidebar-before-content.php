@@ -17,6 +17,30 @@ if ( is_front_page() ) {
 		</div>
 		<?php
 	}
+} elseif ( is_page_template( 'templates/page-day-of.php' ) ) {
+	if ( is_active_sidebar( 'before-content-day-of-1' )
+	     || is_active_sidebar( 'before-content-day-of-2' )
+	     || is_active_sidebar( 'before-content-day-of-3' )
+	     || is_active_sidebar( 'before-content-day-of-4' )
+	     || is_active_sidebar( 'before-content-day-of-5' )
+	) {
+		?>
+		<div id="content-widgets">
+			<?php
+
+			foreach ( range( 1, 5 ) as $index ) {
+				if ( is_active_sidebar( 'before-content-day-of-' . $index ) ) {
+					?>
+					<div id="content-widget-<?php echo $index; /* WPCS: xss ok. */ ?>" class="content-widgets-block">
+						<?php dynamic_sidebar( 'before-content-day-of-' . $index ); ?>
+					</div>
+					<?php
+				}
+			}
+			?>
+		</div>
+		<?php
+	}
 } else {
 	if ( is_active_sidebar( 'before-content-homepage-1' )
 		 || is_active_sidebar( 'before-content-homepage-2' )

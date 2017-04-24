@@ -176,6 +176,58 @@ function campsite_2017_widgets_init() {
 		'after_title'   => '</h2>',
 	) );
 
+	// Before Content Widget Area for the Day Of - located inside the #content block, before any other content. Will show only on the day-of. Empty by default.
+	// Before Content Day Of 1.
+	register_sidebar( array(
+		'name'          => esc_html__( 'Before Content (Day Of) Area 1', 'wordcamporg' ),
+		'id'            => 'before-content-day-of-1',
+		'description'   => esc_html__( 'Will show a widgets area, inside the #content block, before all the content, only on the day-of.', 'wordcamporg' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	// Before Content Day Of 2.
+	register_sidebar( array(
+		'name'          => esc_html__( 'Before Content (Day Of) Area 2', 'wordcamporg' ),
+		'id'            => 'before-content-day-of-2',
+		'description'   => esc_html__( 'Will show a widgets area, inside the #content block, before all the content, only on the day-of.', 'wordcamporg' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	// Before Content Day Of 3.
+	register_sidebar( array(
+		'name'          => esc_html__( 'Before Content (Day Of) Area 3', 'wordcamporg' ),
+		'id'            => 'before-content-day-of-3',
+		'description'   => esc_html__( 'Will show a widgets area, inside the #content block, before all the content, only on the day-of.', 'wordcamporg' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	// Before Content Day Of 4.
+	register_sidebar( array(
+		'name'          => esc_html__( 'Before Content (Day Of) Area 4', 'wordcamporg' ),
+		'id'            => 'before-content-day-of-4',
+		'description'   => esc_html__( 'Will show a widgets area, inside the #content block, before all the content, only on the day-of.', 'wordcamporg' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	// Before Content Day Of 5.
+	register_sidebar( array(
+		'name'          => esc_html__( 'Before Content (Day Of) Area 5', 'wordcamporg' ),
+		'id'            => 'before-content-day-of-5',
+		'description'   => esc_html__( 'Will show a widgets area, inside the #content block, before all the content, only on the day-of.', 'wordcamporg' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+
 	// Header Widget Areas - Will show in all pages. Empty by default. (When activated, there will be a wrapper block around all the Header widget areas)
 	// Header Widget Area 1.
 	register_sidebar( array(
