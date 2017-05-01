@@ -48,7 +48,7 @@
 
 					?>
 					<div id="wcorg-session-<?php the_ID(); ?>" class="wcorg-session" >
-						<h3><?php the_title(); ?></h3>
+						<?php the_title( '<h3 class="wcorg-session-title"><a href="' . esc_url( get_permalink() ) . '">', '</a></h3>' ); ?>
 						<div class="wcorg-session-description">
 							<?php the_excerpt(); ?>
 
