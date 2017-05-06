@@ -335,14 +335,37 @@ function campsite_2017_widgets_init() {
 add_action( 'widgets_init', 'campsite_2017_widgets_init' );
 
 /**
+ * Handles JavaScript detection.
+ *
+ * Adds a `js` class to the root `<html>` element when JavaScript is detected.
+ */
+function campsite_2017_javascript_detection() {
+	echo "<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>\n";
+}
+add_action( 'wp_head', 'campsite_2017_javascript_detection', 0 );
+
+/**
  * Enqueue scripts and styles.
  */
 function campsite_2017_scripts() {
 	wp_enqueue_style( 'campsite-2017-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'campsite-2017-navigation', get_theme_file_uri( '/js/navigation.js' ), array(), '20151215', true );
+	$campsite_2017_l10n = array(
+		'quote' => campsite_2017_get_svg( array( 'icon' => 'quote-right' ) ),
+	);
 
 	wp_enqueue_script( 'campsite-2017-skip-link-focus-fix', get_theme_file_uri( '/js/skip-link-focus-fix.js' ), array(), '20151215', true );
+
+	if ( has_nav_menu( 'primary' ) || has_nav_menu( 'secondary' ) ) {
+		wp_enqueue_script( 'campsite-2017-navigation', get_theme_file_uri( '/js/navigation.js' ), array(), '20151215', true );
+		$campsite_2017n_l10n['expand']   = __( 'Expand child menu', 'wordcamporg' );
+		$campsite_2017n_l10n['collapse'] = __( 'Collapse child menu', 'wordcamporg' );
+		$campsite_2017n_l10n['icon']     = campsite_2017_get_svg( array( 'icon' => 'angle-down', 'fallback' => true ) );
+	}
+
+	wp_localize_script( 'campsite-2017-skip-link-focus-fix', 'campsiteScreenReaderText', $campsite_2017_l10n );
+
+	wp_enqueue_script( 'campsite-2017-global', get_theme_file_uri( '/js/global.js' ), array( 'jquery' ), '1.0', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

@@ -1,4 +1,4 @@
-.main-navigation {
+.page-navigation-container {
 	clear: both;
 	display: block;
 	float: left;
@@ -72,15 +72,20 @@
 
 /* Small menu. */
 .menu-toggle,
-.main-navigation.toggled ul {
+.page-navigation-container.toggled ul {
 	display: block;
+}
+
+.js .menu-toggle,
+.js .dropdown-toggle {
+  display: none;
 }
 
 @media screen and (min-width: 37.5em) {
 	.menu-toggle {
 		display: none;
 	}
-	.main-navigation ul {
+	.page-navigation-container ul {
 		display: block;
 	}
 }
