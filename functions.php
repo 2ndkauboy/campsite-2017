@@ -92,245 +92,166 @@ add_action( 'after_setup_theme', 'campsite_2017_content_width', 0 );
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function campsite_2017_widgets_init() {
-	// Generic main Sidebar Widget Area - Will show in all pages. Will load default content.
-	register_sidebar( array(
-		'name'          => esc_html__( 'Primary Sidebar', 'wordcamporg' ),
-		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Main Widgets Sidebar. Shows up in all pages.', 'wordcamporg' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-	// Generic main Sidebar Widget Area - Will show in all pages. Empty by default.
-	register_sidebar( array(
-		'name'          => esc_html__( 'Secondary Sidebar', 'wordcamporg' ),
-		'id'            => 'sidebar-2',
-		'description'   => esc_html__( 'Secondary Widgets Sidebar - shows up in all pages after the Primary Sidebar block.', 'wordcamporg' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
+	$widget_areas = array(
+		// Generic main Sidebar Widget Area - Will show in all pages. Will load default content.
+		array(
+			'name'          => esc_html__( 'Primary Sidebar', 'wordcamporg' ),
+			'id'            => 'sidebar-1',
+			'description'   => esc_html__( 'Main Widgets Sidebar. Shows up in all pages.', 'wordcamporg' ),
+		),
+		// Generic main Sidebar Widget Area - Will show in all pages. Empty by default.
+		array(
+			'name'          => esc_html__( 'Secondary Sidebar', 'wordcamporg' ),
+			'id'            => 'sidebar-2',
+			'description'   => esc_html__( 'Secondary Widgets Sidebar - shows up in all pages after the Primary Sidebar block.', 'wordcamporg' ),
+		),
 
-	// Before Content Widget Area - located inside the #content block, before any other content. Will show in all pages except the homepage. Empty by default.
-	register_sidebar( array(
-		'name'          => esc_html__( 'Before Content (All pages except homepage)', 'wordcamporg' ),
-		'id'            => 'before-content-1',
-		'description'   => esc_html__( 'Will show a widgets area, inside the #content block, before all the content, in all pages except the homepage.', 'wordcamporg' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
+		// Before Content Widget Area - located inside the #content block, before any other content. Will show in all pages except the homepage. Empty by default.
+		array(
+			'name'          => esc_html__( 'Before Content (All pages except homepage)', 'wordcamporg' ),
+			'id'            => 'before-content-1',
+			'description'   => esc_html__( 'Will show a widgets area, inside the #content block, before all the content, in all pages except the homepage.', 'wordcamporg' ),
+		),
 
-	// Before Content Widget Area for the Homepage - located inside the #content block, before any other content. Will show only on the homepage. Empty by default.
-	// Before Content Homepage 1.
-	register_sidebar( array(
-		'name'          => esc_html__( 'Before Content (Homepage) Area 1', 'wordcamporg' ),
-		'id'            => 'before-content-homepage-1',
-		'description'   => esc_html__( 'Will show a widgets area, inside the #content block, before all the content, only on the homepage.', 'wordcamporg' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-	// Before Content Homepage 2.
-	register_sidebar( array(
-		'name'          => esc_html__( 'Before Content (Homepage) Area 2', 'wordcamporg' ),
-		'id'            => 'before-content-homepage-2',
-		'description'   => esc_html__( 'Will show a widgets area, inside the #content block, before all the content, only on the homepage.', 'wordcamporg' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-	// Before Content Homepage 3.
-	register_sidebar( array(
-		'name'          => esc_html__( 'Before Content (Homepage) Area 3', 'wordcamporg' ),
-		'id'            => 'before-content-homepage-3',
-		'description'   => esc_html__( 'Will show a widgets area, inside the #content block, before all the content, only on the homepage.', 'wordcamporg' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-	// Before Content Homepage 4.
-	register_sidebar( array(
-		'name'          => esc_html__( 'Before Content (Homepage) Area 4', 'wordcamporg' ),
-		'id'            => 'before-content-homepage-4',
-		'description'   => esc_html__( 'Will show a widgets area, inside the #content block, before all the content, only on the homepage.', 'wordcamporg' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-	// Before Content Homepage 5.
-	register_sidebar( array(
-		'name'          => esc_html__( 'Before Content (Homepage) Area 5', 'wordcamporg' ),
-		'id'            => 'before-content-homepage-5',
-		'description'   => esc_html__( 'Will show a widgets area, inside the #content block, before all the content, only on the homepage.', 'wordcamporg' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
+		// Before Content Widget Area for the Homepage - located inside the #content block, before any other content. Will show only on the homepage. Empty by default.
+		// Before Content Homepage 1.
+		array(
+			'name'          => esc_html__( 'Before Content (Homepage) Area 1', 'wordcamporg' ),
+			'id'            => 'before-content-homepage-1',
+			'description'   => esc_html__( 'Will show a widgets area, inside the #content block, before all the content, only on the homepage.', 'wordcamporg' ),
+		),
+		// Before Content Homepage 2.
+		array(
+			'name'          => esc_html__( 'Before Content (Homepage) Area 2', 'wordcamporg' ),
+			'id'            => 'before-content-homepage-2',
+			'description'   => esc_html__( 'Will show a widgets area, inside the #content block, before all the content, only on the homepage.', 'wordcamporg' ),
+		),
+		// Before Content Homepage 3.
+		array(
+			'name'          => esc_html__( 'Before Content (Homepage) Area 3', 'wordcamporg' ),
+			'id'            => 'before-content-homepage-3',
+			'description'   => esc_html__( 'Will show a widgets area, inside the #content block, before all the content, only on the homepage.', 'wordcamporg' ),
+		),
+		// Before Content Homepage 4.
+		array(
+			'name'          => esc_html__( 'Before Content (Homepage) Area 4', 'wordcamporg' ),
+			'id'            => 'before-content-homepage-4',
+			'description'   => esc_html__( 'Will show a widgets area, inside the #content block, before all the content, only on the homepage.', 'wordcamporg' ),
+		),
+		// Before Content Homepage 5.
+		array(
+			'name'          => esc_html__( 'Before Content (Homepage) Area 5', 'wordcamporg' ),
+			'id'            => 'before-content-homepage-5',
+			'description'   => esc_html__( 'Will show a widgets area, inside the #content block, before all the content, only on the homepage.', 'wordcamporg' ),
+		),
 
-	// Before Content Widget Area for the Day Of - located inside the #content block, before any other content. Will show only on the day-of. Empty by default.
-	// Before Content Day Of 1.
-	register_sidebar( array(
-		'name'          => esc_html__( 'Before Content (Day Of) Area 1', 'wordcamporg' ),
-		'id'            => 'before-content-day-of-1',
-		'description'   => esc_html__( 'Will show a widgets area, inside the #content block, before all the content, only on the day-of.', 'wordcamporg' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-	// Before Content Day Of 2.
-	register_sidebar( array(
-		'name'          => esc_html__( 'Before Content (Day Of) Area 2', 'wordcamporg' ),
-		'id'            => 'before-content-day-of-2',
-		'description'   => esc_html__( 'Will show a widgets area, inside the #content block, before all the content, only on the day-of.', 'wordcamporg' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-	// Before Content Day Of 3.
-	register_sidebar( array(
-		'name'          => esc_html__( 'Before Content (Day Of) Area 3', 'wordcamporg' ),
-		'id'            => 'before-content-day-of-3',
-		'description'   => esc_html__( 'Will show a widgets area, inside the #content block, before all the content, only on the day-of.', 'wordcamporg' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-	// Before Content Day Of 4.
-	register_sidebar( array(
-		'name'          => esc_html__( 'Before Content (Day Of) Area 4', 'wordcamporg' ),
-		'id'            => 'before-content-day-of-4',
-		'description'   => esc_html__( 'Will show a widgets area, inside the #content block, before all the content, only on the day-of.', 'wordcamporg' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-	// Before Content Day Of 5.
-	register_sidebar( array(
-		'name'          => esc_html__( 'Before Content (Day Of) Area 5', 'wordcamporg' ),
-		'id'            => 'before-content-day-of-5',
-		'description'   => esc_html__( 'Will show a widgets area, inside the #content block, before all the content, only on the day-of.', 'wordcamporg' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
+		// Before Content Widget Area for the Day Of - located inside the #content block, before any other content. Will show only on the day-of. Empty by default.
+		// Before Content Day Of 1.
+		array(
+			'name'          => esc_html__( 'Before Content (Day Of) Area 1', 'wordcamporg' ),
+			'id'            => 'before-content-day-of-1',
+			'description'   => esc_html__( 'Will show a widgets area, inside the #content block, before all the content, only on the day-of.', 'wordcamporg' ),
+		),
+		// Before Content Day Of 2.
+		array(
+			'name'          => esc_html__( 'Before Content (Day Of) Area 2', 'wordcamporg' ),
+			'id'            => 'before-content-day-of-2',
+			'description'   => esc_html__( 'Will show a widgets area, inside the #content block, before all the content, only on the day-of.', 'wordcamporg' ),
+		),
+		// Before Content Day Of 3.
+		array(
+			'name'          => esc_html__( 'Before Content (Day Of) Area 3', 'wordcamporg' ),
+			'id'            => 'before-content-day-of-3',
+			'description'   => esc_html__( 'Will show a widgets area, inside the #content block, before all the content, only on the day-of.', 'wordcamporg' ),
+		),
+		// Before Content Day Of 4.
+		array(
+			'name'          => esc_html__( 'Before Content (Day Of) Area 4', 'wordcamporg' ),
+			'id'            => 'before-content-day-of-4',
+			'description'   => esc_html__( 'Will show a widgets area, inside the #content block, before all the content, only on the day-of.', 'wordcamporg' ),
+		),
+		// Before Content Day Of 5.
+		array(
+			'name'          => esc_html__( 'Before Content (Day Of) Area 5', 'wordcamporg' ),
+			'id'            => 'before-content-day-of-5',
+			'description'   => esc_html__( 'Will show a widgets area, inside the #content block, before all the content, only on the day-of.', 'wordcamporg' ),
+		),
 
-	// Header Widget Areas - Will show in all pages. Empty by default. (When activated, there will be a wrapper block around all the Header widget areas)
-	// Header Widget Area 1.
-	register_sidebar( array(
-		'name'          => esc_html__( 'Header Widget Area 1', 'wordcamporg' ),
-		'id'            => 'header-1',
-		'description'   => esc_html__( 'Will Show a widgets area on the header - can be combined with other Header Widget Area blocks.', 'wordcamporg' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-	// Header Widget Area 2.
-	register_sidebar( array(
-		'name'          => esc_html__( 'Header Widget Area 2', 'wordcamporg' ),
-		'id'            => 'header-2',
-		'description'   => esc_html__( 'Will Show a widgets area on the header - can be combined with other Header Widget Area blocks.', 'wordcamporg' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-	// Header Widget Area 3.
-	register_sidebar( array(
-		'name'          => esc_html__( 'Header Widget Area 3', 'wordcamporg' ),
-		'id'            => 'header-3',
-		'description'   => esc_html__( 'Will Show a widgets area on the header - can be combined with other Header Widget Area blocks.', 'wordcamporg' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-	// Header Widget Area 4.
-	register_sidebar( array(
-		'name'          => esc_html__( 'Header Widget Area 4', 'wordcamporg' ),
-		'id'            => 'header-4',
-		'description'   => esc_html__( 'Will Show a widgets area on the header - can be combined with other Header Widget Area blocks.', 'wordcamporg' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-	// Header Widget Area 5.
-	register_sidebar( array(
-		'name'          => esc_html__( 'Header Widget Area 5', 'wordcamporg' ),
-		'id'            => 'header-5',
-		'description'   => esc_html__( 'Will Show a widgets area on the header - can be combined with other Header Widget Area blocks.', 'wordcamporg' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
+		// Header Widget Areas - Will show in all pages. Empty by default. (When activated, there will be a wrapper block around all the Header widget areas)
+		// Header Widget Area 1.
+		array(
+			'name'          => esc_html__( 'Header Widget Area 1', 'wordcamporg' ),
+			'id'            => 'header-1',
+			'description'   => esc_html__( 'Will Show a widgets area on the header - can be combined with other Header Widget Area blocks.', 'wordcamporg' ),
+		),
+		// Header Widget Area 2.
+		array(
+			'name'          => esc_html__( 'Header Widget Area 2', 'wordcamporg' ),
+			'id'            => 'header-2',
+			'description'   => esc_html__( 'Will Show a widgets area on the header - can be combined with other Header Widget Area blocks.', 'wordcamporg' ),
+		),
+		// Header Widget Area 3.
+		array(
+			'name'          => esc_html__( 'Header Widget Area 3', 'wordcamporg' ),
+			'id'            => 'header-3',
+			'description'   => esc_html__( 'Will Show a widgets area on the header - can be combined with other Header Widget Area blocks.', 'wordcamporg' ),
+		),
+		// Header Widget Area 4.
+		array(
+			'name'          => esc_html__( 'Header Widget Area 4', 'wordcamporg' ),
+			'id'            => 'header-4',
+			'description'   => esc_html__( 'Will Show a widgets area on the header - can be combined with other Header Widget Area blocks.', 'wordcamporg' ),
+		),
+		// Header Widget Area 5.
+		array(
+			'name'          => esc_html__( 'Header Widget Area 5', 'wordcamporg' ),
+			'id'            => 'header-5',
+			'description'   => esc_html__( 'Will Show a widgets area on the header - can be combined with other Header Widget Area blocks.', 'wordcamporg' ),
+		),
 
-	// Footer Widget Areas - Will show in all pages. Empty by default. (When activated, there will be a wrapper block around all the Footer widget areas)
-	// Footer Widget Area 1.
-	register_sidebar( array(
-		'name'          => esc_html__( 'Footer Widget Area 1', 'wordcamporg' ),
-		'id'            => 'footer-1',
-		'description'   => esc_html__( 'Will Show a widgets area on the footer - can be combined with other Footer Widget Area blocks.', 'wordcamporg' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-	// Footer Widget Area 2.
-	register_sidebar( array(
-		'name'          => esc_html__( 'Footer Widget Area 2', 'wordcamporg' ),
-		'id'            => 'footer-2',
-		'description'   => esc_html__( 'Will Show a widgets area on the footer - can be combined with other Footer Widget Area blocks.', 'wordcamporg' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-	// Footer Widget Area 3.
-	register_sidebar( array(
-		'name'          => esc_html__( 'Footer Widget Area 3', 'wordcamporg' ),
-		'id'            => 'footer-3',
-		'description'   => esc_html__( 'Will Show a widgets area on the footer - can be combined with other Footer Widget Area blocks.', 'wordcamporg' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-	// Footer Widget Area 4.
-	register_sidebar( array(
-		'name'          => esc_html__( 'Footer Widget Area 4', 'wordcamporg' ),
-		'id'            => 'footer-4',
-		'description'   => esc_html__( 'Will Show a widgets area on the footer - can be combined with other Footer Widget Area blocks.', 'wordcamporg' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-	// Footer Widget Area 5.
-	register_sidebar( array(
-		'name'          => esc_html__( 'Footer Widget Area 5', 'wordcamporg' ),
-		'id'            => 'footer-5',
-		'description'   => esc_html__( 'Will Show a widgets area on the footer - can be combined with other Footer Widget Area blocks.', 'wordcamporg' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
+		// Footer Widget Areas - Will show in all pages. Empty by default. (When activated, there will be a wrapper block around all the Footer widget areas)
+		// Footer Widget Area 1.
+		array(
+			'name'          => esc_html__( 'Footer Widget Area 1', 'wordcamporg' ),
+			'id'            => 'footer-1',
+			'description'   => esc_html__( 'Will Show a widgets area on the footer - can be combined with other Footer Widget Area blocks.', 'wordcamporg' ),
+		),
+		// Footer Widget Area 2.
+		array(
+			'name'          => esc_html__( 'Footer Widget Area 2', 'wordcamporg' ),
+			'id'            => 'footer-2',
+			'description'   => esc_html__( 'Will Show a widgets area on the footer - can be combined with other Footer Widget Area blocks.', 'wordcamporg' ),
+		),
+		// Footer Widget Area 3.
+		array(
+			'name'          => esc_html__( 'Footer Widget Area 3', 'wordcamporg' ),
+			'id'            => 'footer-3',
+			'description'   => esc_html__( 'Will Show a widgets area on the footer - can be combined with other Footer Widget Area blocks.', 'wordcamporg' ),
+		),
+		// Footer Widget Area 4.
+		array(
+			'name'          => esc_html__( 'Footer Widget Area 4', 'wordcamporg' ),
+			'id'            => 'footer-4',
+			'description'   => esc_html__( 'Will Show a widgets area on the footer - can be combined with other Footer Widget Area blocks.', 'wordcamporg' ),
+		),
+		// Footer Widget Area 5.
+		array(
+			'name'          => esc_html__( 'Footer Widget Area 5', 'wordcamporg' ),
+			'id'            => 'footer-5',
+			'description'   => esc_html__( 'Will Show a widgets area on the footer - can be combined with other Footer Widget Area blocks.', 'wordcamporg' ),
+		),
+	);
+
+	foreach ( $widget_areas as $widget_area ) {
+		$args = array_merge( array(
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		), $widget_area );
+
+		register_sidebar( $args );
+	}
 }
 add_action( 'widgets_init', 'campsite_2017_widgets_init' );
 
