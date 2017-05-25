@@ -2,6 +2,8 @@
 /**
  * SVG icons related functions and filters
  *
+ * This file was copied from TwentySeventeen 1.2 and only the function names were changed.
+ *
  * @package CampSite_2017
  * @since 1.0
  */
@@ -22,6 +24,8 @@ add_action( 'wp_footer', 'campsite_2017_include_svg_icons', 9999 );
 
 /**
  * Return SVG markup.
+
+ * This function was copied from TwentySeventeen 1.2 and the earlie escape was removed to avoid new translatable strings which would never show up.
  *
  * @param array $args {
  *     Parameters needed to display an SVG.
@@ -51,7 +55,7 @@ function campsite_2017_get_svg( $args = array() ) {
 	$aria_labelledby = '';
 
 	// Generate a uniqueid for each icon.
-	$unique_id       = uniqid();
+	$unique_id = uniqid();
 
 	/*
 	 * CampSite 2017 doesn't use the SVG title or description attributes; non-decorative icons are described with .screen-reader-text.
