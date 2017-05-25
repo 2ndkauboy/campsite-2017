@@ -66,10 +66,10 @@ function campsite_2017_get_svg( $args = array() ) {
 	 */
 	if ( $args['title'] ) {
 		$aria_hidden     = '';
-		$aria_labelledby = ' aria-labelledby="title-' . $unique_id . '"';
+		$aria_labelledby = ' aria-labelledby="title-' . esc_attr( $unique_id ) . '"';
 
 		if ( $args['desc'] ) {
-			$aria_labelledby = ' aria-labelledby="title-' . $unique_id . ' desc-' . $unique_id . '"';
+			$aria_labelledby = ' aria-labelledby="title-' . esc_attr( $unique_id ) . ' desc-' . esc_attr( $unique_id ) . '"';
 		}
 	}
 
@@ -78,11 +78,11 @@ function campsite_2017_get_svg( $args = array() ) {
 
 	// Display the title.
 	if ( $args['title'] ) {
-		$svg .= '<title id="title-' . $unique_id . '">' . esc_html( $args['title'] ) . '</title>';
+		$svg .= '<title id="title-' . esc_attr( $unique_id ) . '">' . esc_html( $args['title'] ) . '</title>';
 
 		// Display the desc only if the title is already set.
 		if ( $args['desc'] ) {
-			$svg .= '<desc id="desc-' . $unique_id . '">' . esc_html( $args['desc'] ) . '</desc>';
+			$svg .= '<desc id="desc-' . esc_attr( $unique_id ) . '">' . esc_html( $args['desc'] ) . '</desc>';
 		}
 	}
 
