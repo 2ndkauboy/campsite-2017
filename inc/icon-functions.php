@@ -2,8 +2,7 @@
 /**
  * SVG icons related functions and filters
  *
- * @package WordPress
- * @subpackage CampSite_2017
+ * @package CampSite_2017
  * @since 1.0
  */
 

@@ -1,10 +1,12 @@
-/* global campsiteScreenReaderText */
 /**
  * Theme functions file.
  *
  * Contains handlers for navigation and widget area.
+ *
+ * @package CampSite_2017
  */
 
+/* global campsiteScreenReaderText */
 (function( $ ) {
 	var masthead, mainMenuToggle, mainNavContain, mainNavigation, secondaryMenuToggle, secondaryNavContain, secondaryNavigation;
 
@@ -26,9 +28,9 @@
 	function initNavigation( container ) {
 
 		// Add dropdown toggle that displays child menu items.
-		var dropdownToggle = $( '<button />', { 'class': 'dropdown-toggle', 'aria-expanded': false })
+		var dropdownToggle = $( '<button />', { 'class': 'dropdown-toggle', 'aria-expanded': false } )
 			.append( campsiteScreenReaderText.icon )
-			.append( $( '<span />', { 'class': 'screen-reader-text', text: campsiteScreenReaderText.expand }) );
+			.append( $( '<span />', { 'class': 'screen-reader-text', text: campsiteScreenReaderText.expand } ) );
 
 		container.find( '.menu-item-has-children > a, .page_item_has_children > a' ).after( dropdownToggle );
 

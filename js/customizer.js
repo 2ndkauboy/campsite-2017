@@ -4,9 +4,11 @@
  * Theme Customizer enhancements for a better user experience.
  *
  * Contains handlers to make Theme Customizer preview reload changes asynchronously.
+ *
+ * @package CampSite_2017
  */
 
-( function( $ ) {
+(function( $ ) {
 
 	// Site title and description.
 	wp.customize( 'blogname', function( value ) {
@@ -39,4 +41,4 @@
 			}
 		} );
 	} );
-} )( jQuery );
+})( jQuery );

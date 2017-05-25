@@ -5,7 +5,6 @@
  * @package CampSite_2017
  */
 
-
 get_header(); ?>
 
 	<div id="primary" class="content-area no-sidebar">

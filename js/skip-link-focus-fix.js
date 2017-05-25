@@ -4,7 +4,10 @@
  * Helps with accessibility for keyboard only users.
  *
  * Learn more: https://git.io/vWdr2
+ *
+ * @package CampSite_2017
  */
+
 (function() {
 	var isIe = /(trident|msie)/i.test( navigator.userAgent );
 

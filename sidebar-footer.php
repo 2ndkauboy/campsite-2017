@@ -7,7 +7,6 @@
  * @package CampSite_2017
  */
 
-
 if ( is_active_sidebar( 'footer-1' )
 	|| is_active_sidebar( 'footer-2' )
 	|| is_active_sidebar( 'footer-3' )
