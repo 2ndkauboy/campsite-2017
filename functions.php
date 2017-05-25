@@ -22,7 +22,7 @@ if ( ! function_exists( 'campsite_2017_setup' ) ) :
 		 * If you're building a theme based on CampSite 2017, use a find and replace
 		 * to change 'wordcamporg' to the name of your theme in all the template files.
 		 */
-		load_theme_textdomain( 'wordcamporg', get_parent_theme_file_path( '/languages' ) );
+		load_theme_textdomain( 'wordcamporg', get_theme_file_path( '/languages' ) );
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
@@ -45,8 +45,6 @@ if ( ! function_exists( 'campsite_2017_setup' ) ) :
 		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menus( array(
 			'primary' => esc_html__( 'Primary', 'wordcamporg' ),
-		) );
-		register_nav_menus( array(
 			'secondary' => esc_html__( 'Secondary', 'wordcamporg' ),
 		) );
 
@@ -297,29 +295,29 @@ add_action( 'wp_enqueue_scripts', 'campsite_2017_scripts' );
 /**
  * Implement the Custom Header feature.
  */
-require get_parent_theme_file_path( '/inc/custom-header.php' );
+require get_theme_file_path( '/inc/custom-header.php' );
 
 /**
  * Custom template tags for this theme.
  */
-require get_parent_theme_file_path( '/inc/template-tags.php' );
+require get_theme_file_path( '/inc/template-tags.php' );
 
 /**
  * Custom functions that act independently of the theme templates.
  */
-require get_parent_theme_file_path( '/inc/extras.php' );
+require get_theme_file_path( '/inc/extras.php' );
 
 /**
  * Customizer additions.
  */
-require get_parent_theme_file_path( '/inc/customizer.php' );
+require get_theme_file_path( '/inc/customizer.php' );
 
 /**
  * Load Jetpack compatibility file.
  */
-require get_parent_theme_file_path( '/inc/jetpack.php' );
+require get_theme_file_path( '/inc/jetpack.php' );
 
 /**
  * SVG icons functions and filters.
  */
-require get_parent_theme_file_path( '/inc/icon-functions.php' );
+require get_theme_file_path( '/inc/icon-functions.php' );
