@@ -27,12 +27,19 @@ if ( post_password_required() ) {
 	if ( have_comments() ) : ?>
 		<h2 class="comments-title">
 			<?php
+			$comments_number = get_comments_number();
+
+			if ( '1' === $comments_number ) {
+				/* translators: %s: post title */
+				printf( _x( 'One Reply to &ldquo;%s&rdquo;', 'comments title', 'twentyseventeen' ), get_the_title() ); // WPCS: XSS OK.
+			} else {
 				printf( // WPCS: XSS OK.
-					/* translators: 1: comments count, 2: comment title */
-					esc_html( _nx( 'One thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'wordcamporg' ) ),
-					number_format_i18n( get_comments_number() ),
-					'<span>' . get_the_title() . '</span>'
+					/* translators: 1: number of comments, 2: post title */
+					_nx( '%1$s Reply to &ldquo;%2$s&rdquo;', '%1$s Replies to &ldquo;%2$s&rdquo;', $comments_number, 'comments title', 'wordcamporg' ),
+					number_format_i18n( $comments_number ),
+					get_the_title()
 				);
+			}
 			?>
 		</h2><!-- .comments-title -->
 
