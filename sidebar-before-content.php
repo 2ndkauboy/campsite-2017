@@ -7,6 +7,8 @@
  * @package CampSite_2017
  */
 
+namespace WordCamp\CampSite_2017;
+
 if ( is_front_page() ) {
 	if ( is_active_sidebar( 'before-content-1' ) ) {
 		?>

@@ -7,9 +7,12 @@
  * @package CampSite_2017
  */
 
+namespace WordCamp\CampSite_2017;
+
 if ( ! is_active_sidebar( 'sidebar-1' ) && ! is_active_sidebar( 'sidebar-2' ) ) {
 	return;
 }
+
 ?>
 
 <aside id="secondary" class="widget-area" role="complementary">
