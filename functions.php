@@ -7,7 +7,6 @@
  * @package CampSite_2017
  */
 
-
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *

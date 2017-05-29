@@ -7,7 +7,6 @@
  * @package CampSite_2017
  */
 
-
 /**
  * Prints HTML with meta information for the current post-date/time and author.
  */
