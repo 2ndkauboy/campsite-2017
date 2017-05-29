@@ -31,7 +31,7 @@ if ( post_password_required() ) {
 
 			if ( '1' === $comments_number ) {
 				/* translators: %s: post title */
-				printf( _x( 'One Reply to &ldquo;%s&rdquo;', 'comments title', 'twentyseventeen' ), get_the_title() ); // WPCS: XSS OK.
+				printf( _x( 'One Reply to &ldquo;%s&rdquo;', 'comments title', 'wordcamporg' ), get_the_title() ); // WPCS: XSS OK.
 			} else {
 				printf( // WPCS: XSS OK.
 					/* translators: 1: number of comments, 2: post title */
