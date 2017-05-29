@@ -16,14 +16,6 @@ if ( ! function_exists( 'campsite_2017_setup' ) ) :
 	 * as indicating support for post thumbnails.
 	 */
 	function campsite_2017_setup() {
-		/*
-		 * Make theme available for translation.
-		 * Translations can be filed in the /languages/ directory.
-		 * If you're building a theme based on CampSite 2017, use a find and replace
-		 * to change 'wordcamporg' to the name of your theme in all the template files.
-		 */
-		load_theme_textdomain( 'wordcamporg', get_theme_file_path( '/languages' ) );
-
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
 
