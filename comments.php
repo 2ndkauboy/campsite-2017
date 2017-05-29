@@ -31,14 +31,17 @@ if ( post_password_required() ) {
 
 			if ( '1' === $comments_number ) {
 				/* translators: %s: post title */
-				printf( _x( 'One Reply to &ldquo;%s&rdquo;', 'comments title', 'twentyseventeen' ), get_the_title() ); // WPCS: XSS OK.
+				echo wp_kses( sprintf(
+					_x( 'One Reply to &ldquo;%s&rdquo;', 'comments title', 'twentyseventeen' ),
+					get_the_title()
+				), wp_kses_allowed_html( 'data' ) );
 			} else {
-				printf( // WPCS: XSS OK.
+				echo wp_kses( sprintf(
 					/* translators: 1: number of comments, 2: post title */
-					_nx( '%1$s Reply to &ldquo;%2$s&rdquo;', '%1$s Replies to &ldquo;%2$s&rdquo;', $comments_number, 'comments title', 'wordcamporg' ),
+					_nx( '%1$s Reply to &ldquo;%2$s&rdquo;', '%1$s Replies to &ldquo;%2$s&rdquo;', absint( $comments_number ), 'comments title', 'wordcamporg' ),
 					number_format_i18n( $comments_number ),
 					get_the_title()
-				);
+				), wp_kses_allowed_html( 'data' ) );
 			}
 			?>
 		</h2><!-- .comments-title -->

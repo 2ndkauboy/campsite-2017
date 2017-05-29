@@ -20,7 +20,7 @@ if ( is_active_sidebar( 'footer-1' )
 		foreach ( range( 1, 5 ) as $index ) {
 			if ( is_active_sidebar( 'footer-' . $index ) ) {
 				?>
-				<div id="footer-widget-<?php echo $index; /* WPCS: xss ok. */ ?>" class="footer-widgets-block">
+				<div id="footer-widget-<?php echo absint( $index ); ?>" class="footer-widgets-block">
 					<?php dynamic_sidebar( 'footer-' . $index ); ?>
 				</div>
 				<?php
