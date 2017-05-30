@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Day Of
+ * Template Name: Day Of Event
  *
  * A special template to be used at the day of the WordCamp with some extra widget areas.
  *
