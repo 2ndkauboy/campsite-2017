@@ -32,7 +32,7 @@ if ( post_password_required() ) {
 			if ( '1' === $comments_number ) {
 				/* translators: %s: post title */
 				echo wp_kses( sprintf(
-					_x( 'One Reply to &ldquo;%s&rdquo;', 'comments title', 'twentyseventeen' ),
+					_x( 'One Reply to &ldquo;%s&rdquo;', 'comments title', 'wordcamporg' ),
 					get_the_title()
 				), wp_kses_allowed_html( 'data' ) );
 			} else {
