@@ -8,15 +8,13 @@
 
 /* global campsiteScreenReaderText */
 (function( $ ) {
-	var masthead, mainMenuToggle, mainNavContain, mainNavigation, secondaryMenuToggle, secondaryNavContain, secondaryNavigation;
-
-	masthead = $( '#masthead' );
-	mainNavContain = masthead.find( '.main-navigation' );
-	mainMenuToggle = masthead.find( '.main-navigation .menu-toggle' );
-	mainNavigation = masthead.find( '.main-navigation > div > ul' );
-	secondaryNavContain = masthead.find( '.secondary-navigation' );
-	secondaryMenuToggle = masthead.find( '.secondary-navigation .menu-toggle' );
-	secondaryNavigation = masthead.find( '.secondary-navigation > div > ul' );
+	var masthead = $( '#masthead' ),
+	    mainMenuToggle = masthead.find( '.main-navigation .menu-toggle' ),
+	    mainNavContain = masthead.find( '.main-navigation' ),
+	    mainNavigation = masthead.find( '.main-navigation > div > ul' ),
+	    secondaryMenuToggle = masthead.find( '.secondary-navigation .menu-toggle' ),
+	    secondaryNavContain = masthead.find( '.secondary-navigation' ),
+	    secondaryNavigation = masthead.find( '.secondary-navigation > div > ul' );
 
 	initNavigation( $( '.main-navigation' ) );
 	initNavigation( $( '.secondary-navigation' ) );
