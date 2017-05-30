@@ -16,7 +16,7 @@ namespace WordCamp\CampSite_2017;
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function setup() {
+function setup_theme() {
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
 
@@ -62,7 +62,7 @@ function setup() {
 	// Add theme support for selective refresh for widgets.
 	add_theme_support( 'customize-selective-refresh-widgets' );
 }
-add_action( 'after_setup_theme', __NAMESPACE__ . '\setup' );
+add_action( 'after_setup_theme', __NAMESPACE__ . '\setup_theme' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.

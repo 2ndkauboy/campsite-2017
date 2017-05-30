@@ -15,7 +15,7 @@ namespace WordCamp\CampSite_2017;
  * @param array $classes Classes for the body element.
  * @return array
  */
-function body_classes( $classes ) {
+function modify_body_classes( $classes ) {
 	// Adds a class of group-blog to blogs with more than 1 published author.
 	if ( is_multi_author() ) {
 		$classes[] = 'group-blog';
@@ -28,7 +28,7 @@ function body_classes( $classes ) {
 
 	return $classes;
 }
-add_filter( 'body_class', __NAMESPACE__ . '\body_classes' );
+add_filter( 'body_class', __NAMESPACE__ . '\modify_body_classes' );
 
 /**
  * Add a pingback url auto-discovery header for singularly identifiable articles.
