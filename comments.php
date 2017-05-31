@@ -33,8 +33,8 @@ if ( post_password_required() ) {
 			$comments_number = get_comments_number();
 
 			if ( '1' === $comments_number ) {
-				/* translators: %s: post title */
 				echo wp_kses_data( sprintf(
+					/* translators: %s: post title */
 					_x( 'One Reply to &ldquo;%s&rdquo;', 'comments title', 'wordcamporg' ),
 					get_the_title()
 				) );
