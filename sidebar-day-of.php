@@ -5,9 +5,12 @@
  * @package CampSite_2017
  */
 
+namespace WordCamp\CampSite_2017;
+
 if ( ! is_active_sidebar( 'sidebar-day-of-1' ) && ! is_active_sidebar( 'sidebar-day-of-2' ) ) {
 	return;
 }
+
 ?>
 
 <aside id="secondary" class="widget-area" role="complementary">

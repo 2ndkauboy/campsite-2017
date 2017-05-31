@@ -7,6 +7,8 @@
  * @package CampSite_2017
  */
 
+namespace WordCamp\CampSite_2017;
+
 get_header(); ?>
 
 	<div id="primary" class="content-area">
@@ -27,7 +29,7 @@ get_header(); ?>
 					the_widget( 'WP_Widget_Recent_Posts' );
 
 					// Only show the widget if site has multiple categories.
-					if ( campsite_2017_categorized_blog() ) : ?>
+					if ( categorized_blog() ) : ?>
 
 						<div class="widget widget_categories">
 							<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'wordcamporg' ); ?></h2>

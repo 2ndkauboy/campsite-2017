@@ -7,6 +7,8 @@
  * @package CampSite_2017
  */
 
+namespace WordCamp\CampSite_2017;
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

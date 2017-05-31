@@ -8,6 +8,8 @@
  * @version 1.0
  */
 
+namespace WordCamp\CampSite_2017;
+
 ?>
 <div class="custom-header">
 
