@@ -26,13 +26,15 @@ namespace WordCamp\CampSite_2017;
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'wordcamporg' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
-		<nav id="header-navigation" class="secondary-navigation page-navigation-container" role="navigation">
-			<button class="menu-toggle" aria-controls="secondary-menu" aria-expanded="false"><?php esc_html_e( 'Secondary Menu', 'wordcamporg' ); ?></button>
-			<?php wp_nav_menu( array(
-				'theme_location' => 'secondary',
-				'menu_id'        => 'secondary-menu',
-			) ); ?>
-		</nav><!-- #site-navigation -->
+		<?php if ( has_nav_menu( 'secondary' ) ) : ?>
+			<nav id="header-navigation" class="secondary-navigation page-navigation-container" role="navigation">
+				<button class="menu-toggle" aria-controls="secondary-menu" aria-expanded="false"><?php esc_html_e( 'Secondary Menu', 'wordcamporg' ); ?></button>
+				<?php wp_nav_menu( array(
+					'theme_location' => 'secondary',
+					'menu_id'        => 'secondary-menu',
+				) ); ?>
+			</nav><!-- #site-navigation -->
+		<?php endif; ?>
 
 		<?php get_template_part( 'template-parts/header/header', 'image' ); ?>
 
