@@ -12,6 +12,8 @@
  * @package CampSite_2017
  */
 
+namespace WordCamp\CampSite_2017;
+
 get_header(); ?>
 
 	<div id="primary" class="content-area">

@@ -7,6 +7,8 @@
  * @package CampSite_2017
  */
 
+namespace WordCamp\CampSite_2017;
+
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -14,7 +16,7 @@
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function campsite_2017_setup() {
+function setup_theme() {
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
 
@@ -52,7 +54,7 @@ function campsite_2017_setup() {
 	) );
 
 	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'campsite_2017_custom_background_args', array(
+	add_theme_support( 'custom-background', apply_filters( __NAMESPACE__ . '\custom_background_args', array(
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
@@ -60,7 +62,7 @@ function campsite_2017_setup() {
 	// Add theme support for selective refresh for widgets.
 	add_theme_support( 'customize-selective-refresh-widgets' );
 }
-add_action( 'after_setup_theme', 'campsite_2017_setup' );
+add_action( 'after_setup_theme', __NAMESPACE__ . '\setup_theme' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -69,17 +71,17 @@ add_action( 'after_setup_theme', 'campsite_2017_setup' );
  *
  * @global int $content_width
  */
-function campsite_2017_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'campsite_2017_content_width', 640 );
+function content_width() {
+	$GLOBALS['content_width'] = apply_filters( __NAMESPACE__ . '\content_width', 640 );
 }
-add_action( 'after_setup_theme', 'campsite_2017_content_width', 0 );
+add_action( 'after_setup_theme', __NAMESPACE__ . '\content_width', 0 );
 
 /**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function campsite_2017_widgets_init() {
+function widgets_init() {
 	$widget_areas = array(
 		// Generic main Sidebar Widget Area - Will show in all pages. Will load default content.
 		array(
@@ -241,26 +243,26 @@ function campsite_2017_widgets_init() {
 		register_sidebar( $args );
 	}
 }
-add_action( 'widgets_init', 'campsite_2017_widgets_init' );
+add_action( 'widgets_init', __NAMESPACE__ . '\widgets_init' );
 
 /**
  * Handles JavaScript detection.
  *
  * Adds a `js` class to the root `<html>` element when JavaScript is detected.
  */
-function campsite_2017_javascript_detection() {
+function javascript_detection() {
 	echo "<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>\n";
 }
-add_action( 'wp_head', 'campsite_2017_javascript_detection', 0 );
+add_action( 'wp_head', __NAMESPACE__ . '\javascript_detection', 0 );
 
 /**
  * Enqueue scripts and styles.
  */
-function campsite_2017_scripts() {
+function enqueue_scripts() {
 	wp_enqueue_style( 'campsite-2017-style', get_stylesheet_uri() );
 
 	$campsite_2017_l10n = array(
-		'quote' => campsite_2017_get_svg( array( 'icon' => 'quote-right' ) ),
+		'quote' => get_svg( array( 'icon' => 'quote-right' ) ),
 	);
 
 	wp_enqueue_script( 'campsite-2017-skip-link-focus-fix', get_theme_file_uri( '/js/skip-link-focus-fix.js' ), array(), '20151215', true );
@@ -269,7 +271,7 @@ function campsite_2017_scripts() {
 		wp_enqueue_script( 'campsite-2017-navigation', get_theme_file_uri( '/js/navigation.js' ), array(), '20151215', true );
 		$campsite_2017n_l10n['expand']   = __( 'Expand child menu', 'wordcamporg' );
 		$campsite_2017n_l10n['collapse'] = __( 'Collapse child menu', 'wordcamporg' );
-		$campsite_2017n_l10n['icon']     = campsite_2017_get_svg( array( 'icon' => 'angle-down', 'fallback' => true ) );
+		$campsite_2017n_l10n['icon']     = get_svg( array( 'icon' => 'angle-down', 'fallback' => true ) );
 	}
 
 	wp_localize_script( 'campsite-2017-skip-link-focus-fix', 'campsiteScreenReaderText', $campsite_2017_l10n );
@@ -280,7 +282,7 @@ function campsite_2017_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'campsite_2017_scripts' );
+add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_scripts' );
 
 /**
  * Implement the Custom Header feature.

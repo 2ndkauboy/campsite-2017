@@ -8,10 +8,12 @@
  * @since 1.0
  */
 
+namespace WordCamp\CampSite_2017;
+
 /**
  * Add SVG definitions to the footer.
  */
-function campsite_2017_include_svg_icons() {
+function include_svg_icons() {
 	// Define SVG sprite file.
 	$svg_icons = get_theme_file_path( '/assets/images/svg-icons.svg' );
 
@@ -20,7 +22,7 @@ function campsite_2017_include_svg_icons() {
 		require_once( $svg_icons );
 	}
 }
-add_action( 'wp_footer', 'campsite_2017_include_svg_icons', 9999 );
+add_action( 'wp_footer', __NAMESPACE__ . '\include_svg_icons', 9999 );
 
 /**
  * Return SVG markup.
@@ -36,7 +38,7 @@ add_action( 'wp_footer', 'campsite_2017_include_svg_icons', 9999 );
  * }
  * @return string SVG markup.
  */
-function campsite_2017_get_svg( $args = array() ) {
+function get_svg( $args = array() ) {
 	// Set defaults.
 	$defaults = array(
 		'icon'        => '',
@@ -62,9 +64,9 @@ function campsite_2017_get_svg( $args = array() ) {
 	 *
 	 * However, child themes can use the title and description to add information to non-decorative SVG icons to improve accessibility.
 	 *
-	 * Example 1 with title: <?php echo campsite_2017_get_svg( array( 'icon' => 'arrow-right', 'title' => __( 'This is the title', 'textdomain' ) ) ); ?>
+	 * Example 1 with title: <?php echo get_svg( array( 'icon' => 'arrow-right', 'title' => __( 'This is the title', 'textdomain' ) ) ); ?>
 	 *
-	 * Example 2 with title and description: <?php echo campsite_2017_get_svg( array( 'icon' => 'arrow-right', 'title' => __( 'This is the title', 'textdomain' ), 'desc' => __( 'This is the description', 'textdomain' ) ) ); ?>
+	 * Example 2 with title and description: <?php echo get_svg( array( 'icon' => 'arrow-right', 'title' => __( 'This is the title', 'textdomain' ), 'desc' => __( 'This is the description', 'textdomain' ) ) ); ?>
 	 *
 	 * See https://www.paciellogroup.com/blog/2013/12/using-aria-enhance-svg-accessibility/.
 	 */
@@ -118,22 +120,22 @@ function campsite_2017_get_svg( $args = array() ) {
  * @param  array   $args        wp_nav_menu() arguments.
  * @return string  $item_output The menu item output with social icon.
  */
-function campsite_2017_nav_menu_social_icons( $item_output, $item, $depth, $args ) {
+function nav_menu_social_icons( $item_output, $item, $depth, $args ) {
 	// Get supported social icons.
-	$social_icons = campsite_2017_social_links_icons();
+	$social_icons = social_links_icons();
 
 	// Change SVG icon inside social links menu if there is supported URL.
 	if ( 'social' === $args->theme_location ) {
 		foreach ( $social_icons as $attr => $value ) {
 			if ( false !== strpos( $item_output, $attr ) ) {
-				$item_output = str_replace( $args->link_after, '</span>' . campsite_2017_get_svg( array( 'icon' => esc_attr( $value ) ) ), $item_output );
+				$item_output = str_replace( $args->link_after, '</span>' . get_svg( array( 'icon' => esc_attr( $value ) ) ), $item_output );
 			}
 		}
 	}
 
 	return $item_output;
 }
-add_filter( 'walker_nav_menu_start_el', 'campsite_2017_nav_menu_social_icons', 10, 4 );
+add_filter( 'walker_nav_menu_start_el', __NAMESPACE__ . '\nav_menu_social_icons', 10, 4 );
 
 /**
  * Add dropdown icon if menu item has children.
@@ -144,25 +146,25 @@ add_filter( 'walker_nav_menu_start_el', 'campsite_2017_nav_menu_social_icons', 1
  * @param  int    $depth Depth of menu item. Used for padding.
  * @return string $title The menu item's title with dropdown icon.
  */
-function campsite_2017_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
+function dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
 	if ( 'top' === $args->theme_location ) {
 		foreach ( $item->classes as $value ) {
 			if ( 'menu-item-has-children' === $value || 'page_item_has_children' === $value ) {
-				$title = $title . campsite_2017_get_svg( array( 'icon' => 'angle-down' ) );
+				$title = $title . get_svg( array( 'icon' => 'angle-down' ) );
 			}
 		}
 	}
 
 	return $title;
 }
-add_filter( 'nav_menu_item_title', 'campsite_2017_dropdown_icon_to_menu_link', 10, 4 );
+add_filter( 'nav_menu_item_title', __NAMESPACE__ . '\dropdown_icon_to_menu_link', 10, 4 );
 
 /**
  * Returns an array of supported social links (URL and icon name).
  *
  * @return array $social_links_icons
  */
-function campsite_2017_social_links_icons() {
+function social_links_icons() {
 	// Supported social links icons.
 	$social_links_icons = array(
 		'behance.net'     => 'behance',
@@ -209,5 +211,5 @@ function campsite_2017_social_links_icons() {
 	 *
 	 * @param array $social_links_icons Array of social links icons.
 	 */
-	return apply_filters( 'campsite_2017_social_links_icons', $social_links_icons );
+	return apply_filters( __NAMESPACE__ . '\social_links_icons', $social_links_icons );
 }

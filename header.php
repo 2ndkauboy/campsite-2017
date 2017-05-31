@@ -9,6 +9,8 @@
  * @package CampSite_2017
  */
 
+namespace WordCamp\CampSite_2017;
+
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?> class="no-js no-svg">
 <head>

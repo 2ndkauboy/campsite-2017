@@ -10,6 +10,8 @@
  * @package CampSite_2017
  */
 
+namespace WordCamp\CampSite_2017;
+
 /*
  * If the current post is protected by a password and
  * the visitor has not yet entered the password we will
@@ -18,6 +20,7 @@
 if ( post_password_required() ) {
 	return;
 }
+
 ?>
 
 <div id="comments" class="comments-area">

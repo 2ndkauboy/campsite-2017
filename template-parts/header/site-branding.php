@@ -8,6 +8,8 @@
  * @version 1.0
  */
 
+namespace WordCamp\CampSite_2017;
+
 ?>
 <div class="site-branding">
 	<?php if ( is_front_page() && is_home() ) : ?>

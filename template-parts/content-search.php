@@ -7,6 +7,8 @@
  * @package CampSite_2017
  */
 
+namespace WordCamp\CampSite_2017;
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -15,7 +17,7 @@
 
 		<?php if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
-			<?php campsite_2017_posted_on(); ?>
+			<?php posted_on(); ?>
 		</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
@@ -25,6 +27,6 @@
 	</div><!-- .entry-summary -->
 
 	<footer class="entry-footer">
-		<?php campsite_2017_entry_footer(); ?>
+		<?php entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->

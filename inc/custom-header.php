@@ -11,30 +11,32 @@
  * @package CampSite_2017
  */
 
+namespace WordCamp\CampSite_2017;
+
 /**
  * Set up the WordPress core custom header feature.
  *
- * @uses campsite_2017_header_style()
+ * @uses header_style()
  */
-function campsite_2017_custom_header_setup() {
-	add_theme_support( 'custom-header', apply_filters( 'campsite_2017_custom_header_args', array(
+function custom_header_setup() {
+	add_theme_support( 'custom-header', apply_filters( __NAMESPACE__ . '\custom_header_args', array(
 		'default-image'          => '',
 		'default-text-color'     => '000000',
 		'width'                  => 1000,
 		'height'                 => 250,
 		'flex-height'            => true,
 		'video'                  => true,
-		'wp-head-callback'       => 'campsite_2017_header_style',
+		'wp-head-callback'       => __NAMESPACE__ . '\header_style',
 	) ) );
 }
-add_action( 'after_setup_theme', 'campsite_2017_custom_header_setup' );
+add_action( 'after_setup_theme', __NAMESPACE__ . '\custom_header_setup' );
 
 /**
  * Styles the header image and text displayed on the blog.
  *
  * @see campsite_2017_custom_header_setup().
  */
-function campsite_2017_header_style() {
+function header_style() {
 	$header_text_color = get_header_textcolor();
 
 	/*
@@ -77,9 +79,9 @@ function campsite_2017_header_style() {
  *
  * @return array
  */
-function campsite_2017_video_controls( $settings ) {
-	$settings['l10n']['play'] = '<span class="screen-reader-text">' . __( 'Play background video', 'wordcamporg' ) . '</span>' . campsite_2017_get_svg( array( 'icon' => 'play' ) );
-	$settings['l10n']['pause'] = '<span class="screen-reader-text">' . __( 'Pause background video', 'wordcamporg' ) . '</span>' . campsite_2017_get_svg( array( 'icon' => 'pause' ) );
+function video_controls( $settings ) {
+	$settings['l10n']['play'] = '<span class="screen-reader-text">' . __( 'Play background video', 'wordcamporg' ) . '</span>' . get_svg( array( 'icon' => 'play' ) );
+	$settings['l10n']['pause'] = '<span class="screen-reader-text">' . __( 'Pause background video', 'wordcamporg' ) . '</span>' . get_svg( array( 'icon' => 'pause' ) );
 	return $settings;
 }
-add_filter( 'header_video_settings', 'campsite_2017_video_controls' );
+add_filter( 'header_video_settings', __NAMESPACE__ . '\video_controls' );
