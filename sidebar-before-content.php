@@ -33,7 +33,7 @@ if ( is_front_page() ) {
 			foreach ( range( 1, 5 ) as $index ) {
 				if ( is_active_sidebar( 'before-content-day-of-' . $index ) ) {
 					?>
-					<div id="content-widget-<?php echo $index; /* WPCS: xss ok. */ ?>" class="content-widgets-block">
+					<div id="content-widget-<?php echo absint( $index ); ?>" class="content-widgets-block">
 						<?php dynamic_sidebar( 'before-content-day-of-' . $index ); ?>
 					</div>
 					<?php
@@ -57,7 +57,7 @@ if ( is_front_page() ) {
 			foreach ( range( 1, 5 ) as $index ) {
 				if ( is_active_sidebar( 'before-content-homepage-' . $index ) ) {
 					?>
-					<div id="content-widget-<?php echo $index; /* WPCS: xss ok. */ ?>" class="content-widgets-block">
+					<div id="content-widget-<?php echo absint( $index ); ?>" class="content-widgets-block">
 						<?php dynamic_sidebar( 'before-content-homepage-' . $index ); ?>
 					</div>
 					<?php

@@ -22,7 +22,7 @@ if ( is_active_sidebar( 'header-1' )
 		foreach ( range( 1, 5 ) as $index ) {
 			if ( is_active_sidebar( 'header-' . $index ) ) {
 				?>
-				<div id="header-widget-<?php echo $index; /* WPCS: xss ok. */ ?>" class="header-widgets-block">
+				<div id="header-widget-<?php echo absint( $index ); ?>" class="header-widgets-block">
 					<?php dynamic_sidebar( 'header-' . $index ); ?>
 				</div>
 				<?php
