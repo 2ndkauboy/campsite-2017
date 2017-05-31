@@ -3,6 +3,8 @@
  *
  * Contains handlers for navigation and widget area.
  *
+ * This file was copied from TwentySeventeen 1.2 and extended to support two nav menus.
+ *
  * @package CampSite_2017
  */
 
