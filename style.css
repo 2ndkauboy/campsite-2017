@@ -548,18 +548,23 @@ a:hover, a:active {
 }
 
 /* Small menu. */
-.menu-toggle,
 .page-navigation-container.toggled-on ul {
   display: block;
 }
 
-.js .menu-toggle,
-.js .dropdown-toggle {
+.menu-toggle,
+.dropdown-toggle {
   display: none;
 }
 
+.js .menu-toggle,
+.js .dropdown-toggle {
+  display: block;
+}
+
 @media screen and (min-width: 37.5em) {
-  .menu-toggle {
+  .js .menu-toggle,
+  .js .dropdown-toggle {
     display: none;
   }
 
