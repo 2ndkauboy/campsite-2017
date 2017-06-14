@@ -705,6 +705,10 @@ a:hover, a:active {
   margin: 0 0 1.5em;
 }
 
+.posted-on a {
+  display: inline-block; /* Remove unwanted whitespace; see https://stackoverflow.com/a/10203529/450127 */
+}
+
 .byline,
 .updated:not(.published) {
   display: none;

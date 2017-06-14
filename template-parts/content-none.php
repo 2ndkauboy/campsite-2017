@@ -14,26 +14,28 @@ namespace WordCamp\CampSite_2017;
 <section class="no-results not-found">
 	<header class="page-header">
 		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'wordcamporg' ); ?></h1>
-	</header><!-- .page-header -->
+	</header>
 
 	<div class="page-content">
-		<?php
-		if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>
+		<?php if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>
+			<p>
+				<?php printf(
+					wp_kses_data( __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'wordcamporg' ) ),
+					esc_url( admin_url( 'post-new.php' ) )
+				); ?>
+			</p>
 
-			<p><?php printf( wp_kses( __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'wordcamporg' ), array( 'a' => array( 'href' => array() ) ) ), esc_url( admin_url( 'post-new.php' ) ) ); ?></p>
+		<?php else : ?>
+			<p>
+				<?php if ( is_search() ) : ?>
+					<?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'wordcamporg' ); ?>
+				<?php else : ?>
+					<?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'wordcamporg' ); ?>
+				<?php endif; ?>
+			</p>
 
-		<?php elseif ( is_search() ) : ?>
+			<?php get_search_form(); ?>
 
-			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'wordcamporg' ); ?></p>
-			<?php
-				get_search_form();
-
-		else : ?>
-
-			<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'wordcamporg' ); ?></p>
-			<?php
-				get_search_form();
-
-		endif; ?>
-	</div><!-- .page-content -->
-</section><!-- .no-results -->
+		<?php endif; ?>
+	</div>
+</section>

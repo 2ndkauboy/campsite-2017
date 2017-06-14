@@ -19,9 +19,10 @@ if ( ! is_active_sidebar( 'sidebar-day-of-1' ) && ! is_active_sidebar( 'sidebar-
 			<?php dynamic_sidebar( 'sidebar-day-of-1' ); ?>
 		</div>
 	<?php endif; ?>
+
 	<?php if ( is_active_sidebar( 'sidebar-day-of-2' ) ) : ?>
 		<div id="secondary-sidebar">
 			<?php dynamic_sidebar( 'sidebar-day-of-2' ); ?>
 		</div>
 	<?php endif; ?>
-</aside><!-- #secondary -->
+</aside>

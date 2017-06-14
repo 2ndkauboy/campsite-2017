@@ -9,6 +9,7 @@
  */
 
 /* global campsiteScreenReaderText */
+
 (function( $ ) {
 	var masthead = $( '#masthead' ),
 	    mainMenuToggle = masthead.find( '.main-navigation .menu-toggle' ),
@@ -25,8 +26,8 @@
 	fixSubmenuOnTouch( mainNavigation, mainMenuToggle );
 	fixSubmenuOnTouch( secondaryNavigation, secondaryMenuToggle );
 
+	// Initialize the navigation toggle buttons.
 	function initNavigation( container ) {
-
 		// Add dropdown toggle that displays child menu items.
 		var dropdownToggle = $( '<button />', { 'class': 'dropdown-toggle', 'aria-expanded': false } )
 			.append( campsiteScreenReaderText.icon )
@@ -40,6 +41,7 @@
 			.attr( 'aria-expanded', 'true' )
 			.find( '.screen-reader-text' )
 			.text( campsiteScreenReaderText.collapse );
+
 		// Set the active submenu initial state.
 		container.find( '.current-menu-ancestor > .sub-menu' ).addClass( 'toggled-on' );
 
@@ -59,13 +61,10 @@
 
 	// Enable menuToggle.
 	function enableMenuToggle( navContain, menuToggle ) {
-
-		// Return early if menuToggle is missing.
 		if ( ! menuToggle.length ) {
 			return;
 		}
 
-		// Add an initial value for the attribute.
 		menuToggle.attr( 'aria-expanded', 'false' );
 
 		menuToggle.on( 'click.campsite', function() {
@@ -84,7 +83,6 @@
 		// Toggle `focus` class to allow submenu access on tablets.
 		function toggleFocusClassTouchScreen( menuToggle ) {
 			if ( 'none' === menuToggle.css( 'display' ) ) {
-
 				$( document.body ).on( 'touchstart.campsite', function( e ) {
 					if ( ! $( e.target ).closest( '.main-navigation li' ).length ) {
 						$( '.main-navigation li' ).removeClass( 'focus' );
@@ -101,7 +99,6 @@
 							el.siblings( '.focus' ).removeClass( 'focus' );
 						}
 					});
-
 			} else {
 				navigation.find( '.menu-item-has-children > a, .page_item_has_children > a' ).unbind( 'touchstart.campsite' );
 			}

@@ -21,7 +21,7 @@ namespace WordCamp\CampSite_2017;
 				'after'  => '</div>',
 			) );
 		?>
-	</div><!-- .entry-content -->
+	</div>
 
 	<?php if ( get_edit_post_link() ) : ?>
 		<footer class="entry-footer">
@@ -36,6 +36,6 @@ namespace WordCamp\CampSite_2017;
 					'</span>'
 				);
 			?>
-		</footer><!-- .entry-footer -->
+		</footer>
 	<?php endif; ?>
-</article><!-- #post-## -->
+</article>

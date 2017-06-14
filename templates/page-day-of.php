@@ -7,27 +7,30 @@
  * @package CampSite_2017
  */
 
-get_header(); ?>
+get_header();
 
-	<div id="primary" class="content-area<?php echo ( ! is_active_sidebar( 'sidebar-day-of-1' ) && ! is_active_sidebar( 'sidebar-day-of-2' ) ) ? ' no-sidebar' : '' ?> ">
+$sidebar_class = ! is_active_sidebar( 'sidebar-day-of-1' ) && ! is_active_sidebar( 'sidebar-day-of-2' ) ? 'no-sidebar' : '';
+
+?>
+
+	<div id="primary" class="content-area <?php echo esc_attr( $sidebar_class ); ?> ">
 		<main id="main" class="site-main" role="main">
-
 			<?php
-			while ( have_posts() ) : the_post();
 
+			while ( have_posts() ) {
+				the_post();
 				get_template_part( 'template-parts/content', 'day-of' );
 
-				// If comments are open or we have at least one comment, load up the comment template.
-				if ( comments_open() || get_comments_number() ) :
+				if ( comments_open() || get_comments_number() ) {
 					comments_template();
-				endif;
+				}
+			}
 
-			endwhile; // End of the loop.
 			?>
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
+		</main>
+	</div>
 
 <?php
+
 get_sidebar( 'day-of' );
 get_footer();

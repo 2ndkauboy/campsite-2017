@@ -9,25 +9,25 @@
  */
 
 namespace WordCamp\CampSite_2017;
+use WP_Post;
+
+add_action( 'wp_footer', __NAMESPACE__ . '\include_svg_icons', 9999 );
 
 /**
  * Add SVG definitions to the footer.
  */
 function include_svg_icons() {
-	// Define SVG sprite file.
 	$svg_icons = get_theme_file_path( '/assets/images/svg-icons.svg' );
 
-	// If it exists, include it.
 	if ( file_exists( $svg_icons ) ) {
 		require_once( $svg_icons );
 	}
 }
-add_action( 'wp_footer', __NAMESPACE__ . '\include_svg_icons', 9999 );
 
 /**
  * Return SVG markup.
-
- * This function was copied from TwentySeventeen 1.2 and the earlie escape was removed to avoid new translatable strings which would never show up.
+ *
+ * This function was copied from TwentySeventeen 1.2 and the early return was removed to avoid new translatable strings which would never show up.
  *
  * @param array $args {
  *     Parameters needed to display an SVG.
@@ -39,7 +39,6 @@ add_action( 'wp_footer', __NAMESPACE__ . '\include_svg_icons', 9999 );
  * @return string SVG markup.
  */
 function get_svg( $args = array() ) {
-	// Set defaults.
 	$defaults = array(
 		'icon'        => '',
 		'title'       => '',
@@ -47,17 +46,10 @@ function get_svg( $args = array() ) {
 		'fallback'    => false,
 	);
 
-	// Parse args.
-	$args = wp_parse_args( $args, $defaults );
-
-	// Set aria hidden.
-	$aria_hidden = ' aria-hidden="true"';
-
-	// Set ARIA.
+	$args            = wp_parse_args( $args, $defaults );
+	$aria_hidden     = ' aria-hidden="true"';
 	$aria_labelledby = '';
-
-	// Generate a uniqueid for each icon.
-	$unique_id = uniqid();
+	$unique_id       = uniqid();
 
 	/*
 	 * CampSite 2017 doesn't use the SVG title or description attributes; non-decorative icons are described with .screen-reader-text.

@@ -10,61 +10,53 @@
 namespace WordCamp\CampSite_2017;
 
 if ( is_front_page() ) {
-	if ( is_active_sidebar( 'before-content-homepage-1' )
-	     || is_active_sidebar( 'before-content-homepage-2' )
-	     || is_active_sidebar( 'before-content-homepage-3' )
-	     || is_active_sidebar( 'before-content-homepage-4' )
-	     || is_active_sidebar( 'before-content-homepage-5' )
-	) {
-		?>
-		<div id="content-widgets">
-			<?php
+	$has_active_homepage_sidebar = is_active_sidebar( 'before-content-homepage-1' ) || is_active_sidebar( 'before-content-homepage-2' ) || is_active_sidebar( 'before-content-homepage-3' ) || is_active_sidebar( 'before-content-homepage-4' ) || is_active_sidebar( 'before-content-homepage-5' );
 
-			foreach ( range( 1, 5 ) as $index ) {
-				if ( is_active_sidebar( 'before-content-homepage-' . $index ) ) {
-					?>
+	if ( $has_active_homepage_sidebar ) {
+		?>
+
+		<div id="content-widgets">
+			<?php foreach ( range( 1, 5 ) as $index ) {
+				if ( is_active_sidebar( 'before-content-homepage-' . $index ) ) : ?>
+
 					<div id="content-widget-<?php echo absint( $index ); ?>" class="content-widgets-block">
 						<?php dynamic_sidebar( 'before-content-homepage-' . $index ); ?>
 					</div>
-					<?php
-				}
-			}
-			?>
+
+				<?php endif;
+			} ?>
 		</div>
+
 		<?php
 	}
-} elseif ( is_page_template( 'templates/page-day-of.php' ) ) {
-	if ( is_active_sidebar( 'before-content-day-of-1' )
-	     || is_active_sidebar( 'before-content-day-of-2' )
-	     || is_active_sidebar( 'before-content-day-of-3' )
-	     || is_active_sidebar( 'before-content-day-of-4' )
-	     || is_active_sidebar( 'before-content-day-of-5' )
-	) {
-		?>
-		<div id="content-widgets">
-			<?php
 
-			foreach ( range( 1, 5 ) as $index ) {
-				if ( is_active_sidebar( 'before-content-day-of-' . $index ) ) {
-					?>
+} elseif ( is_page_template( 'templates/page-day-of.php' ) ) {
+	$has_active_day_of_sidebar = is_active_sidebar( 'before-content-day-of-1' ) || is_active_sidebar( 'before-content-day-of-2' ) || is_active_sidebar( 'before-content-day-of-3' ) || is_active_sidebar( 'before-content-day-of-4' ) || is_active_sidebar( 'before-content-day-of-5' );
+
+	if ( $has_active_day_of_sidebar ) {
+		?>
+
+		<div id="content-widgets">
+			<?php foreach ( range( 1, 5 ) as $index ) {
+				if ( is_active_sidebar( 'before-content-day-of-' . $index ) ) : ?>
+
 					<div id="content-widget-<?php echo absint( $index ); ?>" class="content-widgets-block">
 						<?php dynamic_sidebar( 'before-content-day-of-' . $index ); ?>
 					</div>
-					<?php
-				}
-			}
-			?>
+
+				<?php endif;
+			} ?>
 		</div>
+
 		<?php
 	}
-} else {
-	if ( is_active_sidebar( 'before-content-1' ) ) {
-		?>
-		<div id="content-widgets">
-			<div id="content-widget-1" class="content-widgets-block">
-				<?php dynamic_sidebar( 'before-content-1' ); ?>
-			</div>
+
+} elseif ( is_active_sidebar( 'before-content-1' ) ) { ?>
+
+	<div id="content-widgets">
+		<div id="content-widget-1" class="content-widgets-block">
+			<?php dynamic_sidebar( 'before-content-1' ); ?>
 		</div>
-		<?php
-	}
-}
+	</div>
+
+<?php }

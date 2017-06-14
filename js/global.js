@@ -7,13 +7,13 @@
  */
 
 /* global campsiteScreenReaderText */
-(function( $ ) {
 
-	// Variables and DOM Caching.
+(function( $ ) {
 	var $body = $( 'body' );
 
 	/*
 	 * Test if inline SVGs are supported.
+	 *
 	 * @link https://github.com/Modernizr/Modernizr/
 	 */
 	function supportsInlineSVG() {
@@ -32,6 +32,7 @@
 
 	/*
 	 * Test if background-attachment: fixed is supported.
+	 *
 	 * @link http://stackoverflow.com/questions/14115080/detect-support-for-background-attachment-fixed
 	 */
 	function supportsFixedBackground() {
@@ -52,7 +53,6 @@
 		}
 	}
 
-	// Fire on document ready.
 	$( document ).ready( function () {
 		if ( true === supportsInlineSVG() ) {
 			document.documentElement.className = document.documentElement.className.replace( /(\s*)no-svg(\s*)/, '$1svg$2' );
@@ -63,9 +63,7 @@
 		}
 	} );
 
-	// Add header video class after the video is loaded.
 	$( document ).on( 'wp-custom-header-video-loaded', function () {
 		$body.addClass( 'has-header-video' );
 	} );
-
 })( jQuery );

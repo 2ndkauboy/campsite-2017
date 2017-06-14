@@ -2,33 +2,27 @@
 /**
  * The sidebar widget areas in the footer
  *
- * @link    https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package CampSite_2017
  */
 
 namespace WordCamp\CampSite_2017;
 
-if ( is_active_sidebar( 'footer-1' )
-	|| is_active_sidebar( 'footer-2' )
-	|| is_active_sidebar( 'footer-3' )
-	|| is_active_sidebar( 'footer-4' )
-	|| is_active_sidebar( 'footer-5' )
-) {
-	?>
-	<div id="footer-widgets">
-		<?php
+$has_active_sidebar = is_active_sidebar( 'footer-1' ) || is_active_sidebar( 'footer-2' ) || is_active_sidebar( 'footer-3' ) || is_active_sidebar( 'footer-4' ) || is_active_sidebar( 'footer-5' );
 
-		foreach ( range( 1, 5 ) as $index ) {
-			if ( is_active_sidebar( 'footer-' . $index ) ) {
-				?>
+if ( $has_active_sidebar ) : ?>
+	<div id="footer-widgets">
+
+		<?php foreach ( range( 1, 5 ) as $index ) {
+			if ( is_active_sidebar( 'footer-' . $index ) ) : ?>
+
 				<div id="footer-widget-<?php echo absint( $index ); ?>" class="footer-widgets-block">
 					<?php dynamic_sidebar( 'footer-' . $index ); ?>
 				</div>
-				<?php
-			}
-		}
-		?>
+
+			<?php endif;
+		} ?>
+
 	</div>
-	<?php
-}
+<?php endif;
