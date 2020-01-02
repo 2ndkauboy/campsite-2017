@@ -9,6 +9,7 @@ namespace WordCamp\CampSite_2017;
 
 add_action( 'after_setup_theme',  __NAMESPACE__ . '\setup_theme'             );
 add_action( 'after_setup_theme',  __NAMESPACE__ . '\content_width',        0 );
+add_filter( 'excerpt_more',       __NAMESPACE__ . '\excerpt_more'            );
 add_action( 'widgets_init',       __NAMESPACE__ . '\widgets_init'            );
 add_action( 'wp_head',            __NAMESPACE__ . '\javascript_detection', 0 );
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_scripts'         );
@@ -25,6 +26,7 @@ function setup_theme() {
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'post-thumbnails' );
 	add_theme_support( 'customize-selective-refresh-widgets' );
+	add_theme_support( 'responsive-embeds' );
 
 	add_theme_support(
 		'html5',
@@ -39,10 +41,19 @@ function setup_theme() {
 		) )
 	);
 
+	add_theme_support( 'custom-logo', array(
+		'height'      => 250,
+		'width'       => 250,
+		'flex-width'  => true,
+		'flex-height' => true,
+	) );
+
 	register_nav_menus( array(
 		'primary'   => esc_html__( 'Primary',   'wordcamporg' ),
 		'secondary' => esc_html__( 'Secondary', 'wordcamporg' ),
 	) );
+
+	add_theme_support( 'align-wide' );
 }
 
 /**
@@ -220,6 +231,29 @@ function widgets_init() {
 
 		register_sidebar( $args );
 	}
+}
+
+/**
+ * Replaces "[...]" (appended to automatically generated excerpts) with ... and
+ * a 'Continue reading' link.
+ *
+ * @param string $link Link to single post/page.
+ *
+ * @return string 'Continue reading' link prepended with an ellipsis.
+ */
+function excerpt_more( $link ) {
+	if ( is_admin() || wcorg_skip_feature( 'campsite_2017_excerpt_more' ) ) {
+		return $link;
+	}
+
+	$link = sprintf(
+		'<a href="%1$s" class="more-link">%2$s</a>',
+		esc_url( get_permalink( get_the_ID() ) ),
+		/* translators: %s: Name of current post */
+		sprintf( __( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'wordcamporg' ), get_the_title( get_the_ID() ) )
+	);
+
+	return ' &hellip; ' . $link;
 }
 
 /**

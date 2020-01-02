@@ -20,13 +20,19 @@ namespace WordCamp\CampSite_2017;
 
 			<div class="site-info">
 				<?php /* translators: %s: WordPress */ ?>
-				<a class="site-info-generator" href="http://wordpress.org/" title="<?php esc_attr_e( 'A Semantic Personal Publishing Platform', 'wordcamporg' ); ?>" rel="generator">
+				<a class="site-info-generator" href="https://wordpress.org/" title="<?php esc_attr_e( 'A Semantic Personal Publishing Platform', 'wordcamporg' ); ?>" rel="generator">
 					<?php echo esc_html( sprintf( __( 'Proudly powered by %s', 'wordcamporg' ), 'WordPress' ) ); ?>
 				</a>
 
-				<a class="site-info-network" href="http://central.wordcamp.org/" title="<?php esc_attr_e( 'Return to WordCamp Central', 'wordcamporg' ); ?>">
-					<?php esc_html_e( 'Go to WordCamp Central', 'wordcamporg' ); ?>
-				</a>
+				<span role="separator" aria-hidden="true"></span>
+
+				<a class="site-info-network" href="https://central.wordcamp.org/"><?php
+					esc_html_e( 'Go to WordCamp Central', 'wordcamporg' );
+				?></a>
+
+				<span role="separator" aria-hidden="true"></span>
+
+				<?php function_exists( 'the_privacy_policy_link' ) && the_privacy_policy_link(); ?>
 			</div>
 		</footer>
 
